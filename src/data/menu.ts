@@ -83,8 +83,8 @@ export const sections: Section[] = [
         slug: "bowls",
         title: "Bowls",
         intro: "Fris, kleurrijk en vol goede ingrediënten.",
-        thumb: photo("bowls.webp", "50% 55%"),
-        hero: photo("bowls.webp", "50% 40%"),
+        thumb: photo("bowls", "50% 60%"),
+        hero: photo("bowls", "50% 65%"),
         items: [
           {
             name: "Açaí Dream Bowl",
@@ -114,8 +114,8 @@ export const sections: Section[] = [
         slug: "op-toast",
         title: "Op Toast",
         intro: "Geserveerd op een zuurdesembrood.",
-        thumb: photo("op-toast.webp", "50% 50%"),
-        hero: photo("op-toast.webp", "50% 45%"),
+        thumb: photo("op-toast", "50% 55%"),
+        hero: photo("op-toast", "50% 75%"),
         items: [
           {
             name: "Toast met Gerookte Zalm",
@@ -193,8 +193,8 @@ export const sections: Section[] = [
         slug: "crepes",
         title: "Crêpes",
         intro: "Dun, goudbruin en rijk gevuld.",
-        thumb: photo("crepes.webp", "50% 50%"),
-        hero: photo("crepes.webp", "50% 40%"),
+        thumb: photo("crepes", "50% 65%"),
+        hero: photo("crepes", "50% 70%"),
         items: [
           { name: "Crêpe Nutella", price: 9 },
           { name: "Crêpe Witte Chocola, Aardbei & Banaan", price: 11 },
@@ -248,8 +248,8 @@ export const sections: Section[] = [
         slug: "mocktails",
         title: "Mocktails",
         intro: "Verfrissend, kleurrijk en alcoholvrij.",
-        thumb: photo("mocktails.webp", "50% 40%"),
-        hero: photo("mocktails.webp", "50% 35%"),
+        thumb: photo("mocktails", "50% 58%"),
+        hero: photo("mocktails", "50% 60%"),
         items: [
           { name: "Mocktail Mojito", price: 7 },
           { name: "Mocktail Strawberry", price: 7 },
