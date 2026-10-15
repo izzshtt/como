@@ -220,7 +220,7 @@ export const sections: Section[] = [
     slug: "drankjes",
     title: "Drankjes",
     intro: "Van verse koffie tot verfrissende smoothies en mocktails.",
-    card: photo("drankjes-card", "50% 60%"),
+    card: photo("drankjes-card", "50% 70%"),
     categories: [
       {
         slug: "smoothies",
@@ -296,7 +296,8 @@ export const sections: Section[] = [
         slug: "warme-dranken",
         title: "Warme Dranken",
         intro: "Van espresso tot verse muntthee.",
-        thumb: photo("warme-dranken", "50% 50%"),
+        thumb: photo("warme-dranken", "50% 64%"),
+        hero: photo("warme-dranken", "50% 62%"),
         items: [
           { name: "Espresso", price: 3.3 },
           { name: "Espresso Doppio", price: 3.75 },
