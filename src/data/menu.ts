@@ -264,8 +264,8 @@ export const sections: Section[] = [
         slug: "iced-matcha",
         title: "Iced Matcha",
         intro: "Romige matcha, ijskoud geserveerd.",
-        thumb: photo("iced-matcha", "60% 50%"),
-        hero: photo("iced-matcha", "62% 50%"),
+        thumb: photo("iced-matcha", "50% 62%"),
+        hero: photo("iced-matcha", "50% 55%"),
         items: [
           { name: "Iced Matcha Latte", price: 6.5 },
           { name: "Iced Matcha Strawberry", price: 7 },
