@@ -442,6 +442,26 @@ button {
   border-bottom: 1px solid var(--color-divider);
 }
 
+.menu-group {
+  margin-top: 40px;
+}
+
+.menu-group__title {
+  margin: 0 var(--gutter) 4px;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.menu-group__intro {
+  margin: 0 var(--gutter) 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
 /* Text column is flexible, the price column never shrinks; rows grow with content. */
 .menu-item {
   display: grid;

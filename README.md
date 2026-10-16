@@ -12,6 +12,7 @@ npm run build    # static site in dist/
 - `src/data/menu.ts`: all content (sections → categories → items). Shaped like future Sanity documents.
 - `src/components/`: Header, Logo, HeroImage, OrganicCurve, PalmShadows, SectionCard, CategoryRow, MenuItemRow, Price, NavMenu.
 - `src/pages/`: Splash, Home, SectionPage (Eten/Drankjes), CategoryPage.
+- Categories can have `groups` (titled blocks of items on the same page), used for Loaded Crêpes and Crêpe Rolls.
 - `src/styles.css`: design tokens (exact COMO palette, Playfair Display + DM Sans) and all component styles.
 - Routes: `#/`, `#/eten`, `#/drankjes`, `#/eten/<category>`, `#/drankjes/<category>`.
 

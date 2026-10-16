@@ -26,6 +26,13 @@ export type MenuItem = {
   label?: string
 }
 
+/** A titled block of items inside a category page, e.g. "Loaded Crêpes". */
+export type MenuGroup = {
+  title: string
+  intro?: string
+  items: MenuItem[]
+}
+
 export type Category = {
   slug: string
   title: string
@@ -35,6 +42,8 @@ export type Category = {
   /** Large photo at the top of the category page. Falls back to `thumb`. */
   hero?: Photo
   items: MenuItem[]
+  /** Extra titled groups shown after the main items. */
+  groups?: MenuGroup[]
   /** Extra info shown below the items, e.g. supplements. */
   notes?: string[]
 }
@@ -200,6 +209,28 @@ export const sections: Section[] = [
           { name: "Crêpe Witte Chocola, Aardbei & Banaan", price: 11 },
           { name: "Crêpe Dubai", label: "Favoriet", price: 13.75 },
         ],
+        groups: [
+          {
+            title: "Loaded Crêpes",
+            items: [
+              { name: "M&M's" },
+              { name: "Bueno" },
+              { name: "KitKat" },
+              { name: "Nutella, Aardbei & Banaan" },
+              { name: "Lotus" },
+            ],
+          },
+          {
+            title: "Crêpe Rolls",
+            items: [
+              { name: "Lotus Lava Roll" },
+              { name: "Oreo Brunch" },
+              { name: "Kinder Bueno Cream" },
+              { name: "KitKat Crust" },
+              { name: "Dubai Dream Roll" },
+            ],
+          },
+        ],
         notes: ["+ Bolletje vanille-ijs € 1,50"],
       },
       {
@@ -213,6 +244,16 @@ export const sections: Section[] = [
           { name: "Churros Witte Chocola", price: 9.5 },
         ],
         notes: ["+ Extra Nutella € 1,50"],
+      },
+      {
+        slug: "desserts",
+        title: "Desserts",
+        intro: "Elke dag iets anders. Vraag het personeel of kijk in de koelvitrine wat we vandaag hebben.",
+        // Placeholder photo until COMO supplies a desserts photo (add desserts.png to photos-src/).
+        thumb: photo("crepes", "50% 65%"),
+        hero: photo("crepes", "50% 70%"),
+        items: [{ name: "Dubai Cups", label: "Altijd verkrijgbaar" }],
+        notes: ["Ons dessertaanbod wisselt met de seizoenen en trends. Vraag gerust wat er vandaag in de vitrine staat."],
       },
     ],
   },
@@ -326,8 +367,8 @@ export const sections: Section[] = [
           { name: "Sprite", price: 3.25 },
           { name: "Cassis", price: 3.25 },
           { name: "Bitter Lemon", price: 3.25 },
-          { name: "Appelsap", price: 3.4 },
-          { name: "Chocomel / Fristi", price: 3.5 },
+          { name: "Appelsap", price: 3.25 },
+          { name: "Chocomel / Fristi", price: 3.4 },
           { name: "Red Bull", description: "Ook verkrijgbaar als light", price: 3.5 },
         ],
       },

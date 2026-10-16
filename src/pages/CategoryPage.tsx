@@ -18,6 +18,17 @@ export function CategoryPage({ section, category }: { section: Section; category
             <MenuItemRow key={item.name} item={item} />
           ))}
         </ul>
+        {category.groups?.map((group) => (
+          <section key={group.title} className="menu-group">
+            <h2 className="menu-group__title">{group.title}</h2>
+            {group.intro && <p className="menu-group__intro">{group.intro}</p>}
+            <ul className="menu-list">
+              {group.items.map((item) => (
+                <MenuItemRow key={item.name} item={item} />
+              ))}
+            </ul>
+          </section>
+        ))}
         {category.notes && (
           <div className="menu-notes">
             {category.notes.map((n) => (
