@@ -9,7 +9,7 @@ type Props = { sectionSlug: string; category: Category; /** Rows visible on open
 export function CategoryRow({ sectionSlug, category, eager = false }: Props) {
   // Start fetching the hero the moment the guest touches (or hovers) this row.
   // The page transition takes 420ms, so the photo is usually ready on arrival.
-  const warmHero = () => preload([category.hero ?? category.thumb], "hero", true)
+  const warmHero = () => preload(category.slides ?? [category.hero ?? category.thumb], "hero", true)
 
   return (
     <Link

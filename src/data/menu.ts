@@ -41,6 +41,8 @@ export type Category = {
   thumb: Photo
   /** Large photo at the top of the category page. Falls back to `thumb`. */
   hero?: Photo
+  /** Optional photo slideshow for the category page hero (crossfades through these). */
+  slides?: Photo[]
   items: MenuItem[]
   /** Extra titled groups shown after the main items. */
   groups?: MenuGroup[]
@@ -249,9 +251,13 @@ export const sections: Section[] = [
         slug: "desserts",
         title: "Desserts",
         intro: "Elke dag iets anders. Vraag het personeel of kijk in de koelvitrine wat we vandaag hebben.",
-        // Placeholder photo until COMO supplies a desserts photo (add desserts.png to photos-src/).
-        thumb: photo("crepes", "50% 65%"),
-        hero: photo("crepes", "50% 70%"),
+        thumb: photo("desserts-1", "50% 50%"),
+        hero: photo("desserts-1", "50% 50%"),
+        slides: [
+          photo("desserts-1", "50% 50%"),
+          photo("desserts-2", "50% 50%"),
+          photo("desserts-3", "50% 50%"),
+        ],
         items: [{ name: "Dubai Cups", label: "Altijd verkrijgbaar" }],
         notes: ["Ons dessertaanbod wisselt met de seizoenen en trends. Vraag gerust wat er vandaag in de vitrine staat."],
       },

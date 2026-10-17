@@ -52,7 +52,7 @@ export function App() {
   useEffect(() => {
     if (saveData()) return
     const thumbs = sections.flatMap((s) => s.categories.map((c) => c.thumb))
-    const heroes = sections.flatMap((s) => s.categories.map((c) => c.hero ?? c.thumb))
+    const heroes = sections.flatMap((s) => s.categories.flatMap((c) => c.slides ?? [c.hero ?? c.thumb]))
     loadHome()
       .then(() => loadNow(thumbs, "row"))
       .then(() => {

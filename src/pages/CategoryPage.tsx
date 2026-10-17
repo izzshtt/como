@@ -1,4 +1,5 @@
 import { HeroImage } from "../components/HeroImage"
+import { HeroSlideshow } from "../components/HeroSlideshow"
 import { ArrowLeft } from "../components/Icons"
 import { Link } from "../components/Link"
 import { MenuItemRow } from "../components/MenuItemRow"
@@ -7,7 +8,11 @@ import type { Category, Section } from "../data/menu"
 export function CategoryPage({ section, category }: { section: Section; category: Category }) {
   return (
     <main className="page page--category">
-      <HeroImage photo={category.hero ?? category.thumb} alt={category.title} variant="category" />
+      {category.slides && category.slides.length > 1 ? (
+        <HeroSlideshow photos={category.slides} alt={category.title} />
+      ) : (
+        <HeroImage photo={category.hero ?? category.thumb} alt={category.title} variant="category" />
+      )}
       <div className="category__body">
         <header className="page-intro page-intro--category">
           <h1 className="page-intro__title">{category.title}</h1>

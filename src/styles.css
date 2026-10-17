@@ -241,6 +241,17 @@ button {
   object-fit: cover;
 }
 
+/* Slideshow: photos are stacked; only the active one is visible. */
+.hero__slide {
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+}
+
+.hero__slide.is-active {
+  opacity: 1;
+}
+
 /* Gentle darkening behind the white header, so the logo always reads. */
 .hero__scrim {
   position: absolute;
@@ -741,5 +752,9 @@ button {
   .page-transition,
   .splash__logo {
     animation: none;
+  }
+
+  .hero__slide {
+    transition: none;
   }
 }
