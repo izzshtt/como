@@ -323,8 +323,8 @@ export const sections: Section[] = [
         slug: "iced-coffee",
         title: "Iced Coffee",
         intro: "Onze espresso, koud en verfrissend.",
-        thumb: photo("iced-coffee.webp", "50% 45%"),
-        hero: photo("iced-coffee.webp", "50% 40%"),
+        thumb: photo("iced-coffee", "50% 64%"),
+        hero: photo("iced-coffee", "50% 75%"),
         items: [
           { name: "Iced Latte", price: 6 },
           { name: "Iced Caramel Latte", price: 6.5 },
