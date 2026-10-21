@@ -82,7 +82,7 @@ export function App() {
   return (
     <div className="site">
       <div className={isHome ? "frame frame--home" : "frame"}>
-        <Header tone={headerTone} showBack={!isHome} section={route.name === "section" ? section?.slug : undefined} />
+        <Header tone={headerTone} showBack={route.name === "category"} section={route.name === "section" ? section?.slug : undefined} />
         <div key={path} className="page-transition">
           {page}
         </div>
