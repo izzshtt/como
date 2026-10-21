@@ -255,7 +255,7 @@ button {
 .frame--home .hero--home {
   flex: 1 1 0;
   height: auto;
-  min-height: 160px;
+  min-height: 200px;
   max-height: 500px;
 }
 
@@ -381,6 +381,9 @@ button {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 0.94;
+  /* On short screens the card photo gives way, so the hero photo stays recognisable. */
+  max-height: 20svh;
+  min-height: 96px;
   overflow: hidden;
 }
 
@@ -400,6 +403,29 @@ button {
 
 .section-card__arrow {
   margin-top: 10px;
+}
+
+/* Short screens: tighter spacing on Home so the hero photo gets the room. */
+@media (max-height: 700px) {
+  .home__title {
+    margin-bottom: 14px;
+  }
+
+  .home__choose {
+    padding-bottom: calc(var(--safe-bottom) + 20px);
+  }
+
+  .section-card {
+    padding-bottom: 12px;
+  }
+
+  .section-card__label {
+    margin-top: 12px;
+  }
+
+  .section-card__arrow {
+    margin-top: 6px;
+  }
 }
 
 /* --------------------------------------------------------------------------
