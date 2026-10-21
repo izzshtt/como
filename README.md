@@ -32,6 +32,7 @@ npm run build    # static site in dist/
 - `src/styles.css`: all menu component styles (colours and fonts come from `src/shared/tokens.css`).
 - Routes: `/menu/#/`, `/menu/#/eten`, `/menu/#/drankjes`, `/menu/#/eten/<category>`, `/menu/#/drankjes/<category>`.
 - `public/404.html` + `public/404.css`: page Vercel shows for addresses without a hash that do not exist. Keep its colors in sync with `src/styles.css`.
+- From 900px wide the menu fills the screen: see the "Desktop" block at the end of `src/styles.css` (CSS only). Below 900px the phone layout is unchanged.
 
 ## Deploy (Hetzner + Coolify)
 - Build pack: Dockerfile. Base Directory `/`, Dockerfile Location `/Dockerfile`, Ports Exposes `80`.

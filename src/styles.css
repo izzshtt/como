@@ -757,6 +757,179 @@ button {
   }
 }
 
+/* --------------------------------------------------------------------------
+   Desktop (900px and up): the menu fills the screen.
+   Below 900px nothing changes: phones keep the single column above.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+  :root {
+    --gutter: 48px;
+    --desk-max: 1280px;
+  }
+
+  .frame {
+    max-width: none;
+  }
+
+  /* Full-width rows keep their content within --desk-max on very wide screens. */
+  .header,
+  .frame--home .page--home,
+  .page--section .page-intro,
+  .category-list {
+    --desk-pad: max(var(--gutter), calc((100% - var(--desk-max)) / 2));
+  }
+
+  .header {
+    padding: 24px var(--desk-pad) 20px;
+  }
+
+  .header__logo {
+    width: 140px;
+  }
+
+  .switch__option {
+    min-height: 40px;
+    padding: 0 18px;
+    font-size: 15px;
+  }
+
+  /* Home: photo on the left, the choice on the right, all on one screen. */
+  .frame--home .page--home {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(40px, 5vw, 96px);
+    padding: 8px var(--desk-pad) 40px;
+  }
+
+  .frame--home .hero--home {
+    align-self: stretch;
+    height: auto;
+    min-height: 360px;
+    max-height: none;
+    border-radius: 28px;
+  }
+
+  .curve--homeTop {
+    display: none;
+  }
+
+  .home__choose {
+    margin: 0;
+    padding: 0;
+  }
+
+  .home__title {
+    margin-bottom: 28px;
+    font-size: clamp(32px, 3vw, 44px);
+    text-align: left;
+  }
+
+  .home__cards {
+    gap: 20px;
+  }
+
+  .section-card__media {
+    aspect-ratio: 4 / 5;
+    max-height: none;
+  }
+
+  .section-card__label {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+
+  /* Eten / Drankjes: the categories as a grid of photo cards. */
+  .page--section .page-intro {
+    padding: 40px var(--desk-pad) 36px;
+  }
+
+  .page-intro__title {
+    font-size: clamp(48px, 4.6vw, 68px);
+  }
+
+  .page-intro__text {
+    max-width: 44ch;
+    font-size: 17px;
+  }
+
+  .category-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding: 0 var(--desk-pad) 96px;
+  }
+
+  .category-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 0;
+  }
+
+  .category-row__media {
+    grid-column: 1 / -1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .category-row__title {
+    padding: 18px 12px 20px 22px;
+    font-size: 20px;
+  }
+
+  .category-row__arrow {
+    margin-right: 22px;
+  }
+
+  /* Category: the photo stays in view on the left while the dishes scroll on the right. */
+  .page--category {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .page--category .hero--category {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  .header--photo {
+    padding-inline: var(--gutter);
+  }
+
+  .category__body {
+    width: 100%;
+    max-width: 760px;
+    margin-top: 0;
+    padding: 112px clamp(0px, 3vw, 48px) 48px;
+  }
+
+  .page--category .page-intro__title {
+    font-size: clamp(44px, 4.2vw, 64px);
+  }
+
+  .menu-item__name {
+    font-size: 19px;
+  }
+
+  .price {
+    font-size: 17px;
+  }
+
+  /* Hover feedback for mouse users: the photo zooms in a little. */
+  .section-card__media img,
+  .category-row__media img {
+    transition: transform 400ms var(--ease-out);
+  }
+}
+
+@media (min-width: 900px) and (hover: hover) {
+  .section-card:hover .section-card__media img,
+  .category-row:hover .category-row__media img {
+    transform: scale(1.04);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .palm__frond,
   .page-transition,
@@ -764,7 +937,9 @@ button {
     animation: none;
   }
 
-  .hero__slide {
+  .hero__slide,
+  .section-card__media img,
+  .category-row__media img {
     transition: none;
   }
 }

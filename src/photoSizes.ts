@@ -3,11 +3,12 @@ import type { Photo } from "./data/menu"
 
 // `sizes` per slot: tells the browser how wide the photo is shown, so it
 // downloads the smallest file that is still sharp on that screen.
-// The layout is capped at --max-width (480px), so these never grow past that.
+// Below 900px the menu is a column of at most --max-width (480px); from 900px it
+// fills the screen (see "Desktop" in styles.css).
 export const SIZES = {
-  hero: "(max-width: 480px) 100vw, 480px",
-  card: "(max-width: 480px) 45vw, 220px",
-  row: "(max-width: 480px) 41vw, 200px",
+  hero: "(min-width: 900px) 50vw, (max-width: 480px) 100vw, 480px",
+  card: "(min-width: 900px) 280px, (max-width: 480px) 45vw, 220px",
+  row: "(min-width: 900px) 420px, (max-width: 480px) 41vw, 200px",
 } as const
 
 export type Slot = keyof typeof SIZES

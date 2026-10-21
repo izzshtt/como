@@ -618,6 +618,9 @@ a {
 
 /* --------------------------------------------------------------------------
    FAQ
+   Native <details>: opens and closes without JavaScript, works with the keyboard,
+   and the answers stay in the HTML when closed, so search engines and AI
+   assistants still read them.
    -------------------------------------------------------------------------- */
 
 .faq__list {
@@ -625,12 +628,21 @@ a {
 }
 
 .faq__item {
-  padding: 20px 0;
   border-bottom: 1px solid var(--color-divider);
 }
 
-.faq__item:last-child {
-  border-bottom: 0;
+.faq__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq__summary::-webkit-details-marker {
+  display: none;
 }
 
 .faq__q {
@@ -641,9 +653,54 @@ a {
   letter-spacing: -0.01em;
 }
 
+/* Plus that turns into a minus when the answer is open. */
+.faq__icon {
+  position: relative;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 1.5px;
+  margin: -0.75px 0 0 -7px;
+  border-radius: 1px;
+  background: currentColor;
+  transition: transform 240ms ease;
+}
+
+.faq__icon::after {
+  transform: rotate(90deg);
+}
+
+.faq__item[open] .faq__icon {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.faq__item[open] .faq__icon::after {
+  transform: rotate(0deg);
+}
+
+@media (hover: hover) {
+  .faq__item:not([open]) .faq__summary:hover .faq__icon {
+    background: var(--color-divider);
+  }
+}
+
 .faq__a {
   max-width: 40em;
-  margin-top: 8px;
+  padding: 0 56px 22px 0;
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-muted);
@@ -651,6 +708,24 @@ a {
 
 .faq__a a {
   color: var(--color-text);
+}
+
+/* Smooth open and close in browsers that can animate to height: auto (Chrome, Edge).
+   Other browsers open the answer instantly, which works just as well. */
+@supports (interpolate-size: allow-keywords) {
+  .faq__list {
+    interpolate-size: allow-keywords;
+  }
+
+  .faq__item::details-content {
+    height: 0;
+    overflow: clip;
+    transition: height 280ms ease, content-visibility 280ms ease allow-discrete;
+  }
+
+  .faq__item[open]::details-content {
+    height: auto;
+  }
 }
 
 @media (min-width: 900px) {
@@ -664,8 +739,12 @@ a {
     margin-top: 0;
   }
 
-  .faq__item:first-child {
-    padding-top: 0;
+  .faq__summary {
+    padding: 22px 0;
+  }
+
+  .faq__item:first-child .faq__summary {
+    padding-top: 6px;
   }
 
   .faq__q {
@@ -1001,7 +1080,15 @@ a {
   }
 
   .btn,
-  .fav__img {
+  .fav__img,
+  .faq__icon,
+  .faq__icon::before,
+  .faq__icon::after {
+    transition: none;
+  }
+
+  /* Own rule: a browser that does not know ::details-content would drop the whole selector list. */
+  .faq__item::details-content {
     transition: none;
   }
 
