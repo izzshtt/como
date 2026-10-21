@@ -263,6 +263,19 @@ button {
   flex: none;
 }
 
+/* Short screens (phone in landscape): let Home scroll instead of squashing the photo. */
+@media (max-height: 560px) {
+  .frame--home {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .frame--home .hero--home {
+    flex: none;
+    height: 240px;
+  }
+}
+
 .hero--category {
   height: clamp(340px, 98vw, 440px);
 }
