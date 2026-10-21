@@ -367,7 +367,8 @@ export const sections: Section[] = [
         slug: "koude-dranken",
         title: "Koude Dranken",
         intro: "Frisdranken, sappen en meer.",
-        thumb: photo("koude-dranken", "50% 45%"),
+        thumb: photo("koude-dranken", "50% 50%"),
+        hero: photo("koude-dranken", "58% 50%"),
         items: [
           { name: "Coca-Cola / Coca-Cola Zero", price: 3.25 },
           { name: "Fanta", price: 3.25 },
