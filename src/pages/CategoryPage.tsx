@@ -59,6 +59,12 @@ export function CategoryPage({ section, category }: { section: Section; category
           <ArrowLeft />
           <span>Terug naar {section.title}</span>
         </Link>
+        <p className="site-credit">
+          Designed by{" "}
+          <a href="https://altevo.nl" target="_blank" rel="noopener">
+            Altevo
+          </a>
+        </p>
       </div>
     </main>
   )

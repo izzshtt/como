@@ -555,6 +555,21 @@ button {
   height: 20px;
 }
 
+.site-credit {
+  margin: 8px var(--gutter) 0;
+  padding-bottom: 24px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--color-muted);
+}
+
+.site-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* --------------------------------------------------------------------------
    Navigation overlay: Eten · Drankjes · Home
    -------------------------------------------------------------------------- */
