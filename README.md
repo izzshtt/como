@@ -17,6 +17,11 @@ npm run build    # static site in dist/
 - Routes: `#/`, `#/eten`, `#/drankjes`, `#/eten/<category>`, `#/drankjes/<category>`.
 - `public/404.html` + `public/404.css`: page Vercel shows for addresses without a hash that do not exist. Keep its colors in sync with `src/styles.css`.
 
+## Deploy (Hetzner + Coolify)
+- Build pack: Dockerfile. Base Directory `/`, Dockerfile Location `/Dockerfile`, Ports Exposes `80`.
+- Domain: enter it with `https://` so the Coolify proxy requests and renews the certificate.
+- Security headers, caching and the 404 page live in `deploy/`. While Vercel is still used, keep `deploy/security-headers.conf` and `vercel.json` in sync.
+
 ## Photos
 Originals live in `photos-src/`. `npm run images` (also runs automatically before `npm run build`)
 turns them into responsive WebP files in `public/img/photos/` (320, 640, 960, 1600 px, metadata stripped)
