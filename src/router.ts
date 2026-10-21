@@ -28,26 +28,33 @@ function emit() {
   window.dispatchEvent(new Event("como:navigate"))
 }
 
-export function navigate(to: string) {
-  if (to === currentPath()) {
+type NavigateOptions = { replace?: boolean }
+
+export function navigate(to: string, { replace = false }: NavigateOptions = {}) {
+  const from = currentPath()
+  if (to === from) {
     window.scrollTo({ top: 0, behavior: "smooth" })
     return
   }
-  scrollPositions.set(currentPath(), window.scrollY)
-  window.history.pushState({ como: true }, "", `#${to}`)
+  scrollPositions.set(from, window.scrollY)
+  if (replace) {
+    // Same history slot: keep where this entry originally came from.
+    window.history.replaceState({ como: true, from: window.history.state?.from }, "", `#${to}`)
+  } else {
+    window.history.pushState({ como: true, from }, "", `#${to}`)
+  }
   emit()
   window.scrollTo(0, 0)
 }
 
-/** Back to the previous page; falls back to the parent page on a fresh visit. */
+/** Back arrow: always one level up (category -> overview -> Home), never through earlier switches. */
 export function goBack() {
-  const path = currentPath()
-  if (window.history.state?.como) {
+  const parent = parentPath(currentPath())
+  if (window.history.state?.from === parent) {
+    // We came straight from the parent: a real back restores its scroll position.
     window.history.back()
   } else {
-    window.history.replaceState(null, "", `#${parentPath(path)}`)
-    emit()
-    window.scrollTo(0, 0)
+    navigate(parent, { replace: true })
   }
 }
 

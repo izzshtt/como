@@ -1,16 +1,18 @@
-import { ArrowLeft, Hamburger } from "./Icons"
+import type { Section } from "../data/menu"
+import { ArrowLeft } from "./Icons"
 import { Link } from "./Link"
 import { Logo } from "./Logo"
+import { SectionSwitch } from "./SectionSwitch"
 import { goBack } from "../router"
 
 type Props = {
   /** "light" = black logo on cream, "photo" = white logo over photography. */
   tone?: "light" | "photo"
   showBack?: boolean
-  onMenu: () => void
+  section?: Section["slug"]
 }
 
-export function Header({ tone = "light", showBack = false, onMenu }: Props) {
+export function Header({ tone = "light", showBack = false, section }: Props) {
   return (
     <header className={`header header--${tone}`}>
       <div className="header__start">
@@ -23,9 +25,7 @@ export function Header({ tone = "light", showBack = false, onMenu }: Props) {
           <Logo tone={tone === "photo" ? "white" : "black"} />
         </Link>
       </div>
-      <button type="button" className="icon-button header__menu" onClick={onMenu} aria-label="Menu openen">
-        <Hamburger />
-      </button>
+      {section && <SectionSwitch current={section} tone={tone} />}
     </header>
   )
 }

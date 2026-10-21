@@ -1,6 +1,5 @@
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Header } from "./components/Header"
-import { NavMenu } from "./components/NavMenu"
 import { findCategory, findSection, homeHero, sections } from "./data/menu"
 import { CategoryPage } from "./pages/CategoryPage"
 import { Home } from "./pages/Home"
@@ -42,9 +41,6 @@ function useSplash() {
 export function App() {
   const path = usePath()
   const splash = useSplash()
-  const [menuOpen, setMenuOpen] = useState(false)
-  const closeMenu = useCallback(() => setMenuOpen(false), [])
-  const openMenu = useCallback(() => setMenuOpen(true), [])
 
   // Load order: Home photos, then every category thumbnail, then the white header
   // logo and every category hero. By the time a guest taps a category, its photo is
@@ -86,12 +82,11 @@ export function App() {
   return (
     <div className="site">
       <div className={isHome ? "frame frame--home" : "frame"}>
-        <Header tone={headerTone} showBack={!isHome} onMenu={openMenu} />
+        <Header tone={headerTone} showBack={!isHome} section={route.name === "section" ? section?.slug : undefined} />
         <div key={path} className="page-transition">
           {page}
         </div>
       </div>
-      <NavMenu open={menuOpen} onClose={closeMenu} />
       {splash !== "done" && <Splash leaving={splash === "leaving"} />}
     </div>
   )

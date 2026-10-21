@@ -46,10 +46,6 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-html.no-scroll {
-  overflow: hidden;
-}
-
 body {
   margin: 0;
   min-width: 320px;
@@ -135,7 +131,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: calc(var(--safe-top) + 18px) calc(var(--gutter) - 10px) 14px var(--gutter);
+  padding: calc(var(--safe-top) + 18px) var(--gutter) 14px var(--gutter);
   background: var(--color-bg);
 }
 
@@ -178,6 +174,45 @@ button {
 
 .icon-button:active {
   opacity: 0.55;
+}
+
+/* Eten | Drankjes switch in the header */
+.switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--color-text);
+  border-radius: 999px;
+}
+
+.switch__option {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: background-color 200ms var(--ease-out), color 200ms var(--ease-out);
+}
+
+.switch__option.is-active {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* Narrow phones: back arrow, logo and switch still fit on one line. */
+@media (max-width: 359px) {
+  .header {
+    padding-right: calc(var(--gutter) - 10px);
+  }
+
+  .switch__option {
+    padding: 0 8px;
+    font-size: 13px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -568,81 +603,6 @@ button {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-/* --------------------------------------------------------------------------
-   Navigation overlay: Eten · Drankjes · Home
-   -------------------------------------------------------------------------- */
-
-.nav {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  background: rgb(23 23 21 / 0.2);
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 320ms var(--ease-out),
-    visibility 0s linear 320ms;
-}
-
-.nav.is-open {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 320ms var(--ease-out);
-}
-
-.nav__panel {
-  max-width: var(--max-width);
-  height: 100%;
-  margin: 0 auto;
-  overflow-y: auto;
-  background: var(--color-bg);
-  padding: 0 0 calc(var(--safe-bottom) + 40px);
-  transform: translateY(-12px);
-  transition: transform 420ms var(--ease-out);
-}
-
-.nav.is-open .nav__panel {
-  transform: none;
-}
-
-.nav__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: calc(var(--safe-top) + 18px) calc(var(--gutter) - 10px) 14px var(--gutter);
-}
-
-.nav__links {
-  padding: 40px var(--gutter) 0;
-}
-
-.nav__link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--color-divider);
-  font-family: var(--font-serif);
-  font-size: 34px;
-  line-height: 1.15;
-  transition: opacity 160ms ease;
-}
-
-.nav__link:first-child {
-  padding-top: 0;
-}
-
-.nav__link:active {
-  opacity: 0.55;
-}
-
-.nav__link svg {
-  flex: none;
-  width: 22px;
-  height: 22px;
 }
 
 /* --------------------------------------------------------------------------
