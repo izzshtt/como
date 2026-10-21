@@ -11,7 +11,7 @@
   --color-muted: #66615b;
   --color-divider: #ded8cf;
 
-  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-display: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --gutter: 24px;
@@ -334,11 +334,11 @@ button {
 }
 
 .home__title {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(25px, 7vw, 29px);
   line-height: 1.2;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.02em;
   text-align: center;
   margin-bottom: 22px;
 }
@@ -398,11 +398,11 @@ button {
 }
 
 .page-intro__title {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(40px, 11.6vw, 48px);
   line-height: 1.16;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   overflow-wrap: break-word;
 }
 
@@ -456,9 +456,11 @@ button {
 
 .category-row__title {
   padding: 14px 8px 14px 18px;
-  font-family: var(--font-serif);
-  font-size: clamp(18px, 5vw, 20px);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(16px, 4.2vw, 20px);
   line-height: 1.25;
+  letter-spacing: -0.01em;
   overflow-wrap: break-word;
 }
 
@@ -494,10 +496,11 @@ button {
 
 .menu-group__title {
   margin: 0 var(--gutter) 4px;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
+  letter-spacing: -0.015em;
   color: var(--color-text);
 }
 
@@ -523,10 +526,11 @@ button {
 }
 
 .menu-item__name {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 18px;
   line-height: 1.3;
+  letter-spacing: -0.005em;
   overflow-wrap: break-word;
   hyphens: auto;
 }
