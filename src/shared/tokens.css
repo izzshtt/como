@@ -1,0 +1,14 @@
+/* COMO brand tokens, shared by the website (index.html) and the menu (menu/).
+   Change a colour or font here and both follow. */
+
+:root {
+  --color-splash: #d5cfc8;
+  --color-surface: #ebe7dd;
+  --color-bg: #f9f7f3;
+  --color-text: #171715;
+  --color-muted: #66615b;
+  --color-divider: #ded8cf;
+
+  --font-display: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
