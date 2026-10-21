@@ -88,7 +88,7 @@ export const sections: Section[] = [
     slug: "eten",
     title: "Eten",
     intro: "Ontdek onze verse gerechten, bereid met de beste ingrediënten.",
-    card: photo("eten-card", "50% 55%"),
+    card: photo("op-toast", "50% 60%"),
     categories: [
       {
         slug: "bowls",
