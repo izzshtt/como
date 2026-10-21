@@ -4,6 +4,9 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --include=dev
 COPY . .
+# The live address (e.g. https://www.example.nl) for canonical URLs and sitemap.xml.
+# Set it in Coolify as a build variable. Empty = the build is marked noindex.
+ARG SITE_URL
 RUN npm run build
 
 # Serve: only the static files, with our Nginx config.

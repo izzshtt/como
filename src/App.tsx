@@ -87,7 +87,7 @@ export function App() {
       ? `${category.title} | COMO.`
       : section
         ? `${section.title} | COMO.`
-        : "COMO. bakery & brunch | Menu"
+        : "Menu | COMO. bakery & brunch Arnhem"
   }, [section, category])
 
   return (

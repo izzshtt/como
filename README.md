@@ -11,10 +11,18 @@ npm run build    # static site in dist/
 ## Pages
 - `/` website: `index.html` + `src/site/home.css`. Plain HTML and CSS, no JavaScript, so it loads fast and search engines read it directly.
 - `/menu/` menu app: `menu/index.html` + `src/main.tsx` (React, hash routes like `/menu/#/eten`). `/menu` without a slash redirects to `/menu/` (vercel.json, deploy/nginx.conf).
+- `/menukaart/` full menu as text with prices: `menukaart/index.html`. Its content is generated from `src/data/menu.ts` at build time, so it always matches the menu app.
 - Shared colours and fonts: `src/shared/tokens.css`, used by both.
 - `npm run dev`: website on http://localhost:5173/, menu on http://localhost:5173/menu/.
-- Photos on the website are referenced by file name in `index.html` (e.g. `home-hero-640.webp`). The build checks that every referenced file exists (`scripts/check-public-refs.mjs`); if a replaced photo loses a width, update its `srcset`.
-- Once the domain is known: add `url`, `image` and `hasMenu` to the JSON-LD in `index.html`, plus `<link rel="canonical">` and an `og:image`.
+- Photos on the website are referenced by file name in `index.html` (e.g. `home-hero-640.webp`). After every build `scripts/check-build-refs.mjs` checks that every internal link and file in `dist/` exists; if a replaced photo loses a width, update its `srcset`.
+
+## SEO and AI search
+- Business facts (name, address, phone, hours, socials, KvK): `src/data/business.ts`. Keep them identical to the Google Business Profile.
+- Opening hours also appear as text in `index.html` (hero, Bezoek ons, FAQ). When the hours change, update `business.ts` and those three places.
+- `scripts/vite-plugin-site.ts` fills the `<!-- site:... -->` and `<!-- menu:... -->` markers at build time: shared header and footer, JSON-LD, canonical and Open Graph tags, the two FAQ sentences about the menu and the full `/menukaart/` page. A price change in `menu.ts` updates all of it.
+- `SITE_URL` (e.g. `https://www.example.nl`, no trailing slash): set it in the hosting environment once the domain is live. Without it every page is marked `noindex` and no `sitemap.xml` is written. On Coolify it must be available at build time (the Dockerfile reads it with `ARG SITE_URL`).
+- Share images in `public/img/share/` are generated from `photos-src/home-hero.*` before every build.
+- `geo` in `business.ts` stays `null` until the exact coordinates are copied from Google Maps (right-click the COMO pin, click the coordinates).
 
 ## Structure (menu)
 - `src/data/menu.ts`: all content (sections → categories → items). Shaped like future Sanity documents.
@@ -29,6 +37,7 @@ npm run build    # static site in dist/
 - Build pack: Dockerfile. Base Directory `/`, Dockerfile Location `/Dockerfile`, Ports Exposes `80`.
 - Domain: enter it with `https://` so the Coolify proxy requests and renews the certificate.
 - Security headers, caching and the 404 page live in `deploy/`. While Vercel is still used, keep `deploy/security-headers.conf` and `vercel.json` in sync.
+- Every page folder (like `/menukaart/`) needs its own three blocks in `deploy/nginx.conf`: a redirect for the path without a slash, the page shell with `no-cache`, and its `index.html`. Copy the `/menukaart` blocks. Without them Nginx answers 404. Add the matching redirect to `vercel.json`.
 
 ## Photos
 Originals live in `photos-src/`. `npm run images` (also runs automatically before `npm run build`)

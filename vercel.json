@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/menu", "destination": "/menu/", "permanent": true }
+    { "source": "/menu", "destination": "/menu/", "permanent": true },
+    { "source": "/menukaart", "destination": "/menukaart/", "permanent": true }
   ],
   "headers": [
     {

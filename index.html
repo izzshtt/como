@@ -10,56 +10,17 @@
     <meta property="og:locale" content="nl_NL" />
     <meta property="og:title" content="COMO. bakery &amp; brunch" />
     <meta property="og:description" content="Gebak, matcha, brunch en koffie in Arnhem. Vers en met liefde bereid." />
-    <meta name="twitter:card" content="summary" />
+    <!-- site:seo -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="COMO." />
     <link rel="stylesheet" href="/src/site/home.css" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "CafeOrCoffeeShop",
-        "name": "COMO. bakery & brunch",
-        "telephone": "+31617415682",
-        "priceRange": "€10-20",
-        "servesCuisine": ["Brunch", "Gebak", "Koffie", "Matcha"],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Johan de Wittlaan 277",
-          "postalCode": "6828 XM",
-          "addressLocality": "Arnhem",
-          "addressCountry": "NL"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "10:00",
-            "closes": "22:00"
-          }
-        ],
-        "sameAs": ["https://www.instagram.com/como.arnhem/", "https://www.tiktok.com/@como.arnhem"]
-      }
-    </script>
+    <!-- site:jsonld -->
   </head>
   <body>
     <a class="skip" href="#main">Naar de inhoud</a>
 
-    <header class="site-header">
-      <div class="container site-header__inner">
-        <a class="site-header__logo" href="/" aria-label="COMO., naar de homepage">
-          <img src="/img/logo/como-black.png" width="1400" height="437" alt="COMO. bakery &amp; brunch" />
-        </a>
-        <nav class="site-nav" aria-label="Hoofdmenu">
-          <a class="site-nav__link" href="#over">Over COMO</a>
-          <a class="site-nav__link" href="#bezoek">Bezoek ons</a>
-          <a class="btn btn--dark btn--small" href="/menu/">
-            <span class="only-mobile">Menu</span>
-            <span class="only-desktop">Bekijk het menu</span>
-          </a>
-        </nav>
-      </div>
-    </header>
+    <!-- site:header -->
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
@@ -188,6 +149,38 @@
         </div>
       </section>
 
+      <section class="section" id="vragen" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 class="section__title" id="faq-title">Veelgestelde vragen</h2>
+          <div class="faq__list">
+            <div class="faq__item">
+              <h3 class="faq__q">Wanneer is COMO open?</h3>
+              <p class="faq__a">COMO is open van dinsdag tot en met zondag, van 10:00 tot 22:00. Op maandag zijn we gesloten.</p>
+            </div>
+            <div class="faq__item">
+              <h3 class="faq__q">Waar zit COMO in Arnhem?</h3>
+              <p class="faq__a">Je vindt COMO aan de Johan de Wittlaan 277, 6828 XM Arnhem. Met de knop Route plannen open je de route in Google Maps.</p>
+            </div>
+            <div class="faq__item">
+              <h3 class="faq__q">Wat staat er op het menu?</h3>
+              <p class="faq__a"><!-- menu:overview --> De volledige <a href="/menukaart/">menukaart met prijzen</a> staat online.</p>
+            </div>
+            <div class="faq__item">
+              <h3 class="faq__q">Wat kost eten en drinken bij COMO?</h3>
+              <p class="faq__a"><!-- menu:prices --></p>
+            </div>
+            <div class="faq__item">
+              <h3 class="faq__q">Welke desserts zijn er vandaag?</h3>
+              <p class="faq__a">Het dessertaanbod wisselt en gaat mee met wat er op dat moment in is. Vraag het personeel of kijk in de koelvitrine wat er vandaag is. De Dubai Cups zijn er altijd.</p>
+            </div>
+            <div class="faq__item">
+              <h3 class="faq__q">Ik heb een allergie. Waar moet ik op letten?</h3>
+              <p class="faq__a">Onze producten kunnen allergenen bevatten. Laat het ons weten als je een allergie hebt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="social-title">
         <div class="container">
           <div class="social">
@@ -204,19 +197,6 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <img class="site-footer__logo" src="/img/logo/como-black.png" width="1400" height="437" alt="COMO. bakery &amp; brunch" loading="lazy" />
-        <nav class="site-footer__nav" aria-label="Footer">
-          <a href="/menu/">Menu</a>
-          <a href="#over">Over COMO</a>
-          <a href="#bezoek">Bezoek ons</a>
-        </nav>
-        <p class="site-footer__meta">
-          <span>KvK 98095250</span>
-          <span>Designed by <a href="https://altevo.nl" target="_blank" rel="noopener">Altevo</a></span>
-        </p>
-      </div>
-    </footer>
+    <!-- site:footer -->
   </body>
 </html>
