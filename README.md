@@ -15,6 +15,7 @@ npm run build    # static site in dist/
 - Categories can have `groups` (titled blocks of items on the same page), used for Loaded Crêpes and Crêpe Rolls.
 - `src/styles.css`: design tokens (exact COMO palette, Playfair Display + DM Sans) and all component styles.
 - Routes: `#/`, `#/eten`, `#/drankjes`, `#/eten/<category>`, `#/drankjes/<category>`.
+- `public/404.html` + `public/404.css`: page Vercel shows for addresses without a hash that do not exist. Keep its colors in sync with `src/styles.css`.
 
 ## Photos
 Originals live in `photos-src/`. `npm run images` (also runs automatically before `npm run build`)

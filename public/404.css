@@ -1,0 +1,77 @@
+/* Styles for 404.html. Kept in a separate file because the CSP blocks inline styles.
+   Colors mirror the tokens in src/styles.css: update both if the palette changes. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f9f7f3;
+  color: #171715;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: calc(env(safe-area-inset-top, 0px) + 24px) 24px calc(env(safe-area-inset-bottom, 0px) + 24px);
+}
+
+.nf {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.nf__logo {
+  display: block;
+  width: 168px;
+  margin: 0 auto 40px;
+}
+
+.nf__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.nf__title {
+  margin: 0 0 12px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.nf__text {
+  margin: 0 0 32px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #66615b;
+}
+
+.nf__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: #171715;
+  color: #f9f7f3;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nf__button:focus-visible,
+.nf__logo:focus-visible {
+  outline: 2px solid #171715;
+  outline-offset: 4px;
+}
