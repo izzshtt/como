@@ -901,7 +901,16 @@ button {
     width: 100%;
     max-width: 760px;
     margin-top: 0;
-    padding: 112px clamp(0px, 3vw, 48px) 48px;
+    padding: 112px clamp(0px, 3vw, 48px) 24px;
+    /* Fills the screen height, so the credit sits at the bottom like a footer. */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .page--category .site-credit {
+    margin-top: auto;
+    padding: 40px 0 0;
   }
 
   .page--category .page-intro__title {
