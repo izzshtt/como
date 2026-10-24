@@ -432,8 +432,8 @@ a {
   border-radius: var(--hp-radius);
 }
 
-.img--mocktails {
-  object-position: 50% 58%;
+.img--over {
+  object-position: 50% 72%;
 }
 
 .img--iced-coffee {
