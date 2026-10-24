@@ -179,8 +179,8 @@ export const sections: Section[] = [
         slug: "pancakes",
         title: "Pancake’s",
         intro: "Luchtige pancakes met verse ingrediënten.",
-        thumb: photo("pancakes.webp", "50% 50%"),
-        hero: photo("pancakes-hero.webp", "50% 40%"),
+        thumb: photo("pancakes", "50% 68%"),
+        hero: photo("pancakes", "50% 80%"),
         items: [
           {
             name: "Pancake Nutella",
@@ -239,7 +239,7 @@ export const sections: Section[] = [
         slug: "churros",
         title: "Churros",
         intro: "Krokant van buiten, zacht van binnen.",
-        thumb: photo("churros", "40% 50%"),
+        thumb: photo("churros", "50% 60%"),
         items: [
           { name: "Churros Kaneelsuiker", price: 8 },
           { name: "Churros Nutella", price: 9.5 },
@@ -277,8 +277,8 @@ export const sections: Section[] = [
         slug: "smoothies",
         title: "Smoothies",
         intro: "Reset your mind: vers geblend met echt fruit.",
-        thumb: photo("smoothies.webp", "50% 40%"),
-        hero: photo("smoothies.webp", "50% 35%"),
+        thumb: photo("smoothies", "50% 62%"),
+        hero: photo("smoothies", "50% 68%"),
         items: [
           { name: "Smoothie Strawberry Banaan", price: 6.5 },
           {
