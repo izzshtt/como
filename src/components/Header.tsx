@@ -25,7 +25,13 @@ export function Header({ tone = "light", showBack = false, section }: Props) {
           <Logo tone={tone === "photo" ? "white" : "black"} />
         </Link>
       </div>
-      {section && <SectionSwitch current={section} tone={tone} />}
+      <div className="header__end">
+        {/* Desktop only (CSS): visitors on a laptop almost always came from the website. */}
+        <a className="header__site" href="/">
+          Naar de website
+        </a>
+        {section && <SectionSwitch current={section} tone={tone} />}
+      </div>
     </header>
   )
 }

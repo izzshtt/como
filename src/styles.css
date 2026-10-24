@@ -168,6 +168,27 @@ button {
   opacity: 0.55;
 }
 
+.header__end {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Link back to the website: only shown on desktop (see the Desktop block). */
+.header__site {
+  display: none;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 160ms ease;
+}
+
+.header__site:hover {
+  text-decoration-color: currentColor;
+}
+
 /* Eten | Drankjes switch in the header */
 .switch {
   display: inline-flex;
@@ -395,6 +416,23 @@ button {
 
 .section-card__arrow {
   margin-top: 10px;
+}
+
+/* Quiet link under the cards: back to the website for hours, address and more. */
+.home__site {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.home__site svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* Short screens: tighter spacing on Home so the hero photo gets the room. */
@@ -786,6 +824,21 @@ button {
 
   .header__logo {
     width: 140px;
+  }
+
+  .header__site {
+    display: inline-flex;
+  }
+
+  /* On a category page the link sits over the cream right column, not the photo. */
+  .header--photo .header__site {
+    color: var(--color-text);
+  }
+
+  .home__site {
+    justify-content: flex-start;
+    margin-top: 20px;
+    font-size: 15px;
   }
 
   .switch__option {

@@ -54,6 +54,9 @@ export function CategoryPage({ section, category }: { section: Section; category
             </a>{" "}
             @como.arnhem
           </p>
+          <p>
+            Openingstijden en adres: <a href="/">bekijk onze website</a>
+          </p>
         </footer>
         <Link to={`/${section.slug}`} className="back-link">
           <ArrowLeft />

@@ -1,4 +1,5 @@
 import { HeroImage } from "../components/HeroImage"
+import { ArrowRight } from "../components/Icons"
 import { SectionCard } from "../components/SectionCard"
 import { homeHero, sections } from "../data/menu"
 
@@ -13,6 +14,10 @@ export function Home() {
             <SectionCard key={s.slug} section={s} />
           ))}
         </div>
+        <a className="home__site" href="/">
+          Openingstijden, adres en meer over COMO
+          <ArrowRight />
+        </a>
       </section>
     </main>
   )
